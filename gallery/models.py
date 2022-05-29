@@ -18,3 +18,14 @@ class Location(models.Model):
         A method to save the location name
         """
         return self.save()
+
+
+            
+class Category(models.Model):
+    cat_name = models.CharField(max_length=50, unique=True)
+    
+    def __str__(self):
+        """
+        String representation
+        """
+        return self.cat_name
