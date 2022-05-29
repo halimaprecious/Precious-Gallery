@@ -9,7 +9,7 @@
   <div class="card-columns">
 
     <div class="card border-secondary">
-      <img class="card-img-top" class="img-responsive" src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" size="100px200">
+      <img class="card-img-top" class="img-responsive" src="{{image.image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" size="100px200">
     </div>
     <div class="card-body">
       <p>Details: {{image.description}}</p>
@@ -17,7 +17,7 @@
       <small style="font-size: 12px" class="ml-45"><i class="far fa-clock"></i> {{image.post_date | timesince}} ago</small> 
 
       {% for category in image.categories.all %}
-      <p> Category: {{ category.name }} </p>
+      <p> Category: {{ category.cat_name }} </p>
       {% endfor %}
     </div>
 

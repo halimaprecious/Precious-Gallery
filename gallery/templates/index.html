@@ -10,7 +10,7 @@
   <div class="card-columns">
     {% for image in images %}
     <div class="card border-secondary">
-      <img class="card-img-top" class="img-responsive" src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" size="100px200">
+      <img class="card-img-top" class="img-responsive" src="{{image.image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" size="100px200">
     </div>
     {%endfor%}
   </div>
@@ -31,18 +31,18 @@
       </div>
 
       <div class="modal-body">
-        <img class="card-img-top" class="img-responsive" src="{{image.gallery_image.url}}" size="100px200">
+        <img class="card-img-top" class="img-responsive" src="{{image.image.url}}" size="100px200">
         <p>Details: {{image.description}}</p>
         <p class="description-body"><span class="badge"> <i class="fas fa-map-marker-alt"></i> {{image.location}}</span></p>
         <small style="font-size: 12px" class="ml-45"><i class="far fa-clock"></i> {{image.post_date | timesince}} ago</small> 
 
         {% for category in image.categories.all %}
-        <p> Category: {{ category.name }} </p>
+        <p> Category: {{ category.cat_name }} </p>
         {% endfor %}
 
         <!-- copy to clip board-->
 
-        <button type="button" name="button" class="btn btn-info" value="{{image.gallery_image.url}}" onclick="copylink(this.value)">Copy Image Link</button>
+        <button type="button" name="button" class="btn btn-info" value="{{image.image.url}}" onclick="copylink(this.value)">Copy Image Link</button>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -51,6 +51,18 @@
     </div>
   </div>
 </div>
+<script>
+  function copylink(value) {
+      console.log('seen')
+      function handler(event){
+          event.clipboardData.setData('text/plain', value);
+          event.preventDefault();
+          document.removeEventListener('copy', handler, true);
+      }
+      document.addEventListener('copy', handler, true);
+      document.execCommand('copy');
+  }
+</script>
 
 {%endfor%}
 {% endblock %}

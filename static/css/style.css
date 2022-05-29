@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap');
+/* font-family: 'Cinzel Decorative', cursive; */
+/* font-family: 'Rajdhani', sans-serif; */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* modal */
+.modal-content {
+    background-color:rgba(255, 68, 0, 0.562);
+    text-decoration-color: white; 
+}
+/* navbar */
+.navbar-brand{
+    font-family: 'Cinzel Decorative', cursive;
+    color:orangered;
+    font-size: 30px;
+}
+.navbar-brand:hover{
+    color: rgba(255, 68, 0, 0.562);
+ }
+.menu{
+    background-color:rgba(255, 68, 0, 0.562);
+}
+.nav-link{
+    color:orangered;
+    font-size: 20px;
+}
+.nav-link:hover{
+    color: rgba(255, 68, 0, 0.562);
+}
+ 
+@media (min-width: 576px) {
+    .modal-dialog { max-width: none; }
+   }
+   
