@@ -46,3 +46,23 @@ class Image(models.Model):
 
     def __str__(self):
         return self.name
+
+    @classmethod
+    def all_images(self):
+
+        return Image.objects.all()
+
+    @classmethod
+    def search_by_category(cls,search_images):
+        images = Image.objects.filter(categories__cat_name__icontains=search_images)
+        return images
+
+    @classmethod
+    def view_location(cls,city):
+        location = cls.objects.filter(location=city)
+        return location
+
+    @classmethod
+    def view_category(cls,cat):
+        categories = cls.objects.filter(categories=cat)
+        return categories

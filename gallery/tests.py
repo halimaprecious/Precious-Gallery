@@ -1,5 +1,6 @@
 from django.test import TestCase
-from .models import  Location, Category
+from .models import  Location, Category,Image
+
 # Create your tests here.
 
 class LocationTestClass(TestCase):
@@ -44,4 +45,51 @@ class CategoryTestClass(TestCase):
 
     def test_save_method(self):
         categories = Category.objects.all()
+        self.assertTrue(len(categories) > 0)
+
+class ImageTest(TestCase):
+    ''' def class instance setup for the image'''
+
+    def setUp(self):
+        self.nairobi = Location.objects.create(city='Nairobi')
+        self.fiction = Category.objects.create(cat_name='fiction')
+        self.mystery = Category.objects.create(cat_name='mystery')
+
+        self.book = Image.objects.create(name='book', location=self.nairobi,  description='fiction book')
+        self.book.categories.add(self.fiction)
+        self.book.categories.add(self.mystery)
+
+    # def a testcase for instance of the drinks class
+    def test_instance(self):
+        self.book.save()
+        self.assertTrue(isinstance(self.book, Image))
+
+    def test_delete_image(self):
+        self.book.save()
+        self.book.delete()
+        self.assertTrue(len(Image.objects.all()) == 0)
+
+    def test_update(self):
+        self.book.save()
+        self.book.name = 'fictionFacts'
+        self.assertTrue(self.book.name == 'fictionFacts')
+
+    def test_all_images(self):
+        self.book.save()
+        images = Image.all_images()
+        self.assertTrue(len(images) > 0)
+
+    def test_search_by_category(self):
+        self.book.save()
+        images = Image.search_by_category('fiction')
+        self.assertTrue(len(images) > 0)
+
+    def test_view_location(self):
+        self.book.save()
+        location = Image.view_location(self.nairobi)
+        self.assertTrue(len(location) > 0)
+
+    def test_view_category(self):
+        self.book.save()
+        categories = Image.view_category(self.mystery)
         self.assertTrue(len(categories) > 0)
