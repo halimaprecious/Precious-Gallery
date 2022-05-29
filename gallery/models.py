@@ -32,3 +32,17 @@ class Category(models.Model):
         A method to save the category name
         """
         return self.save()
+
+class Image(models.Model):
+    """
+    A class thaat determines how photos will be saved into the database
+    """
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    categories = models.ManyToManyField(Category)
+    post_date = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to ='photos/')
+
+    def __str__(self):
+        return self.name
