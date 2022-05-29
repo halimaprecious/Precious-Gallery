@@ -8,9 +8,6 @@ class Location(models.Model):
     city = models.CharField(max_length=244)
 
     def __str__(self):
-        """
-        String representation
-        """
         return self.city
 
     def save_location(self):
@@ -22,10 +19,16 @@ class Location(models.Model):
 
             
 class Category(models.Model):
+    """
+    A class for the category the Photo falls under
+    """
     cat_name = models.CharField(max_length=50, unique=True)
     
     def __str__(self):
-        """
-        String representation
-        """
         return self.cat_name
+
+    def save_category(self):
+        """
+        A method to save the category name
+        """
+        return self.save()
