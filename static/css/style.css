@@ -17,13 +17,13 @@
 .navbar-brand{
     font-family: 'Cinzel Decorative', cursive;
     color:orangered;
-    font-size: 30px;
+    /* font-size: 35px !important; */
 }
 .navbar-brand:hover{
     color: rgba(255, 68, 0, 0.562);
  }
-.menu{
-    background-color:rgba(255, 68, 0, 0.562);
+.navbar-toggler{
+    background-color:rgba(255, 68, 0, 0.562) !important;
 }
 .nav-link{
     color:orangered;
