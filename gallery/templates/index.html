@@ -1,1 +1,56 @@
-<h1>Home</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+{{ block.super}}
+{% load bootstrap5 %}
+<br>
+<br>
+<div class="container">
+
+  <div class="card-columns">
+    {% for image in images %}
+    <div class="card border-secondary">
+      <img class="card-img-top" class="img-responsive" src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" size="100px200">
+    </div>
+    {%endfor%}
+  </div>
+
+</div>
+
+<!-- Large modal -->
+{% for image in images %}
+
+<!-- Modal -->
+<div class="modal fade" id="extraModal{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="extra" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Title: {{image.name}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+      </div>
+
+      <div class="modal-body">
+        <img class="card-img-top" class="img-responsive" src="{{image.gallery_image.url}}" size="100px200">
+        <p>Details: {{image.description}}</p>
+        <p class="description-body"><span class="badge"> <i class="fas fa-map-marker-alt"></i> {{image.location}}</span></p>
+        <small style="font-size: 12px" class="ml-45"><i class="far fa-clock"></i> {{image.post_date | timesince}} ago</small> 
+
+        {% for category in image.categories.all %}
+        <p> Category: {{ category.name }} </p>
+        {% endfor %}
+
+        <!-- copy to clip board-->
+
+        <button type="button" name="button" class="btn btn-info" value="{{image.gallery_image.url}}" onclick="copylink(this.value)">Copy Image Link</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{%endfor%}
+{% endblock %}
