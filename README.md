@@ -8,7 +8,7 @@
 
 ## DESCRIPTION 
 
-This is a photo gallery web Application where you can view photos and see the details of each photo
+This is a photo gallery web Application where you can view different photos and see the details of each photo.You can also search a photo by category.
 
 
 ## Features
