@@ -63,6 +63,6 @@ class Image(models.Model):
         return location
 
     @classmethod
-    def view_category(cls,cat):
-        categories = cls.objects.filter(categories=cat)
+    def view_category(cls,category):
+        categories = cls.objects.filter(categories=category)
         return categories

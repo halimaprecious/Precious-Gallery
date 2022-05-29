@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 
 {% block content %}
 {{ block.super}}
-{% load bootstrap5 %}
-<br>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <br>
 <div class="container">
 
   <div class="card-columns">
-    {% for image in images %}
+    {% for photo in photos %}
     <div class="card border-secondary">
-      <img class="card-img-top" class="img-responsive" src="{{image.image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" size="100px200">
+      <img class="card-img-top" class="img-responsive" src="{{photo.image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" size="100px200">
     </div>
     {%endfor%}
   </div>
@@ -18,23 +18,23 @@
 </div>
 
 <!-- Large modal -->
-{% for image in images %}
+{% for photo in photos %}
 
 <!-- Modal -->
 <div class="modal fade" id="extraModal{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="extra" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Title: {{image.name}}</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Title: {{photo.name}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
       </div>
 
       <div class="modal-body">
-        <img class="card-img-top" class="img-responsive" src="{{image.image.url}}" size="100px200">
-        <p>Details: {{image.description}}</p>
-        <p class="description-body"><span class="badge"> <i class="fas fa-map-marker-alt"></i> {{image.location}}</span></p>
-        <small style="font-size: 12px" class="ml-45"><i class="far fa-clock"></i> {{image.post_date | timesince}} ago</small> 
+        <img class="card-img-top" class="img-responsive" src="{{photo.image.url}}" size="100px200">
+        <p>Details: {{photo.description}}</p>
+        <p class="description-body"><span class="badge"> <i class="fas fa-map-marker-alt"></i> {{photo.location}}</span></p>
+        <small style="font-size: 12px" class="ml-45"><i class="far fa-clock"></i> {{photo.post_date | timesince}} ago</small> 
 
         {% for category in image.categories.all %}
         <p> Category: {{ category.cat_name }} </p>
@@ -42,7 +42,7 @@
 
         <!-- copy to clip board-->
 
-        <button type="button" name="button" class="btn btn-info" value="{{image.image.url}}" onclick="copylink(this.value)">Copy Image Link</button>
+        <button type="button" name="button" class="btn btn-info" value="{{photo.image.url}}" onclick="copylink(this.value)">Copy Image Link</button>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

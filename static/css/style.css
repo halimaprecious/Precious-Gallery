@@ -10,8 +10,8 @@
 }
 /* modal */
 .modal-content {
-    background-color:rgba(255, 68, 0, 0.562);
-    text-decoration-color: white; 
+    background-color:rgba(255, 68, 0, 0.562) !important;
+    /* text-decoration-color: white;  */
 }
 /* navbar */
 .navbar-brand{
