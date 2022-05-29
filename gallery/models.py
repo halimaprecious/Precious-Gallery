@@ -12,3 +12,9 @@ class Location(models.Model):
         String representation
         """
         return self.city
+
+    def save_location(self):
+        """
+        A method to save the location name
+        """
+        return self.save()
