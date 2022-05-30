@@ -4,19 +4,19 @@ from django.http import Http404
 
 # Create your views here.
 def home(request):
-    photos = Image.objects.all()
+    images = Image.objects.all()
     city = Location.objects.all()
     category = Category.objects.all()
 
     if 'location' in request.GET and request.GET['location']:
         city = request.GET.get('location')
-        photos = Image.view_location(city)
+        images = Image.view_location(city)
 
     elif 'category' in request.GET and request.GET['category']:
         category = request.GET.get('categories')
-        photos = Image.view_category(category)
+        images = Image.view_category(category)
 
-    return render(request, 'index.html', {"city":city,"photos":photos,"category":category })
+    return render(request, 'index.html', {"city":city,"images":images,"category":category })
 
 
 def get_image_by_id(request,image_id):
