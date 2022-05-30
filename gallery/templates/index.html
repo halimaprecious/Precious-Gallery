@@ -41,15 +41,13 @@
           <small style="font-size: 12px" class="ml-45"><i class="far fa-clock"></i> {{image.post_date | timesince}} ago</small> 
           <!-- copy to clip board-->
 
-          <button type="button" name="button" class="btn btn-secondary" value="{{image.image.url}}" onclick="copylink(this.value)">Copy Image Link</button>
+          <button type="button" name="button" class="btn btn-secondary" value="https://preciousgallery.herokuapp.com{{image.image.url}}" onclick="copylink(this.value)">Copy Image Link</button>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
         </div>
       </div>
-{%endfor%}
-
     </div>
   </div>
   <script>
@@ -64,5 +62,7 @@
         document.execCommand('copy');
     }
   </script>
+  
+{%endfor%}
 
 {% endblock %}

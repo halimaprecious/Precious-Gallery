@@ -69,8 +69,9 @@ Use the command given below to run automated tests.
 halimaprecious3@gmail.com
 
 ## LIVE LINK
-
-
+Find the deployed app:
+[here](https://preciousgallery.herokuapp.com/)
+ 
 
 ## LICENSE 
 
