@@ -9,7 +9,7 @@
 <div class="container">
 
   <div class="card-columns">
-    {% for photo in photo %}
+    {% for photo in photos %}
     <div class="card border-secondary">
       <img class="card-img-top" class="img-responsive" src="{{photo.image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" size="100px200">
     </div>
@@ -19,7 +19,7 @@
 </div>
 
 
-{% for photo in photo %}
+{% for photo in photos%}
 
   <!-- Modal -->
   <div class="modal fade" id="extraModal{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="extra" aria-hidden="true">
