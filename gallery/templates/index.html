@@ -35,12 +35,10 @@
           <img class="card-img-top" class="img-responsive" src="{{photo.image.url}}" size="100px200">
           <p>Details: {{photo.description}}</p>
           <p class="description-body"><span class="badge"> <i class="fas fa-map-marker-alt"></i> {{photo.location}}</span></p>
-          <small style="font-size: 12px" class="ml-45"><i class="far fa-clock"></i> {{photo.post_date | timesince}} ago</small> 
-
-          {% for category in image.categories.all %}
+          {% for category in categories.all %}
           <p> Category: {{ category.cat_name }} </p>
           {% endfor %}
-
+          <small style="font-size: 12px" class="ml-45"><i class="far fa-clock"></i> {{photo.post_date | timesince}} ago</small> 
           <!-- copy to clip board-->
 
           <button type="button" name="button" class="btn btn-secondary" value="{{photo.image.url}}" onclick="copylink(this.value)">Copy Image Link</button>
@@ -50,6 +48,8 @@
 
         </div>
       </div>
+{%endfor%}
+
     </div>
   </div>
   <script>
@@ -65,5 +65,4 @@
     }
   </script>
 
-{%endfor%}
 {% endblock %}
