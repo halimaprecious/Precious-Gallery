@@ -11,7 +11,7 @@
   <div class="card-columns">
     {% for photo in photos %}
     <div class="card border-secondary">
-      <img class="card-img-top" class="img-responsive" src="{{photo.image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" size="100px200">
+      <img class="card-img-top" class="img-responsive" src="{{photo.image.url}}" data-target="#extraModal{{photo.id}}" data-toggle="modal" size="100px200">
     </div>
     {%endfor%}
   </div>
@@ -22,7 +22,7 @@
 {% for photo in photos%}
 
   <!-- Modal -->
-  <div class="modal fade" id="extraModal{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="extra" aria-hidden="true">
+  <div class="modal fade" id="extraModal{{photo.id}}" tabindex="-1" role="dialog" aria-labelledby="extra" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
