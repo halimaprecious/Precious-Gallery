@@ -8,12 +8,12 @@
   <div class="card-columns">
 
     <div class="card border-secondary">
-      <img class="card-img-top" class="img-responsive" src="{{image.image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" size="100px200">
+      <img class="card-img-top" class="img-responsive" src="{{photo.image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" size="100px200">
     </div>
     <div class="card-body">
       <p>Details: {{image.description}}</p>
-      <p class="description-body"><span class="badge"> <i class="fas fa-map-marker-alt"></i> {{image.location}}</span></p>
-      <small style="font-size: 12px" class=""><i class="far fa-clock"></i> {{image.post_date | timesince}} ago</small> 
+      <p class="description-body"><span class="badge"> <i class="fas fa-map-marker-alt"></i> {{photo.location}}</span></p>
+      <small style="font-size: 12px" class=""><i class="far fa-clock"></i> {{photo.post_date | timesince}} ago</small> 
       {% for category in image.categories.all %}
       <p> Category: {{ category.cat_name }} </p>
       {% endfor %}
