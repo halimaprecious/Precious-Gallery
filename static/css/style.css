@@ -33,7 +33,5 @@
     color: rgba(255, 68, 0, 0.562);
 }
  
-@media (min-width: 576px) {
-    .modal-dialog { max-width: none; }
-   }
+
    

@@ -35,9 +35,9 @@
           <img class="card-img-top" class="img-responsive" src="{{image.image.url}}" size="100px200">
           <p>Details: {{image.description}}</p>
           <p class="description-body"><span class="badge"> <i class="fas fa-map-marker-alt"></i> {{image.location}}</span></p>
-          <!-- {% for category in categories.all %} -->
-          <p> Category: {{ image.category }} </p>
-          <!-- {% endfor %} -->
+          {% for category in image.categories.all %}
+          <p> Category: {{image.categories }} </p>
+          {% endfor %}
           <small style="font-size: 12px" class="ml-45"><i class="far fa-clock"></i> {{image.post_date | timesince}} ago</small> 
           <!-- copy to clip board-->
 
